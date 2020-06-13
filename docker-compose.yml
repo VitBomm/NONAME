@@ -18,6 +18,16 @@ services:
       - POSTGRES_USER=hello_django
       - POSTGRES_PASSWORD=hello_django
       - POSTGRES_DB=hello_django_dev
+  frontend:
+    build: ./frontend
+    command: ["npm", "start"]
+    stdin_open: true
+    volumes:
+      - ./frontend:/app/frontend
+      - node_modules:/app/frontend/node_modules
+    ports:
+      - "3000:3000"
 volumes:
   postgres_data:
+  node_modules:
 # vim:ft=ansible:
