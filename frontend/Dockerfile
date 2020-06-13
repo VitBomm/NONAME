@@ -4,6 +4,6 @@ COPY package.json /app/frontend
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 8001
 CMD ["npm", "start"]
 
