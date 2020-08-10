@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { print, log } from './text-helper.js';
 var defaultPerson = {
     name: {
         first: 'Shane',
@@ -67,6 +67,36 @@ var [last] = peaks.reverse()
 console.log(last) // Rose
 console.log(peaks.join(', ')) // Rose, Ralston, Tallac
 
+class Vacation {
+  constructor(destination, length) {
+    this.destination = destination;
+    this.length = length;
+  }
+  print() {
+    console.log(`${this.destination} will take ${this.length} days.`)
+  }
+}
+const trip = new Vacation("Santiago, Chile", 7)
+trip.print() // Santiago, Chile will take 7 days
+
+class Expedition extends Vacation {
+  constructor(destination, length, gear) {
+    super(destination, length);
+    this.gear = gear;
+  }
+  print() {
+    super.print();
+    console.log(`Bring your ${this.gear.join(" and your ")}`);
+  }
+}
+
+
+const trip1 = new Expedition("Mt.Whitney", 3, ["sunglasses", "prayer flags", "camera"])
+
+trip1.print();
+
+print('aaasdfsdfsd')
+log('logging a message')
 function Thinh() {
     return (
         <p>Thinh</p>
